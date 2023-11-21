@@ -8,16 +8,6 @@ board = [
 ]
 
 # Create a function to display the Tic-Tac-Toe board
-
-
-def game_initialize():
-    player = "User"
-    user_symbol = input("Choose your symbol (X or O): ").upper()
-
-    moves = []
-    game_over = False
-
-
 def display_board(board):
     for row in board:
         print(row)
@@ -59,9 +49,17 @@ def check_winner(board, player):
 
 # Main game loop
 
+# Create a function to initialize the game
+def initialize_game():
+    player = "User"
+    user_symbol = input("Choose your symbol (X or O): ").upper()
+    moves = []
+    game_over = False
+    return player, user_symbol, moves, game_over
+
 
 def main():
-    game_initialize()
+    player, user_symbol, moves, game_over = initialize_game()
 
     while not game_over:
         display_board(board)
