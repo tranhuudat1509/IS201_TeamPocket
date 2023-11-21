@@ -33,9 +33,26 @@ def check_winner(board, player):
     return False
 
 # Create a function to get the user's move
-
-
-# def get_user_move():
+def get_user_move():
+    isXValid = False
+    isYValid = False
+    while isXValid == False:
+        try:
+            x = int(input('Please choose a row from 1 to 3: ')) - 1
+            if x not in range(3):
+                print('Invalid row number, please try again:')
+            else: isXValid = True
+        except ValueError:
+            print('Please enter a number:')             
+    while isYValid == False:
+        try:
+            y = int(input('Please choose a column from 1 to 3: ')) - 1
+            if x not in range(3):
+                print('Invalid column number, please try again:')
+            else: isYValid = True  
+        except ValueError:
+            print('Please enter a number')   
+    return x, y
 
 # Create a function to get the computer's move
 
@@ -43,9 +60,12 @@ def check_winner(board, player):
 # def get_computer_move():
 
 # Create a function to save the game moves to a file
+SAVE_FILE = 'moves.txt'
 
+def save_moves_to_file(moves):
+    with open(SAVE_FILE, 'a+') as save_file:
+        save_file.writelines(moves)
 
-# def save_moves_to_file(moves):
 
 # Main game loop
 
